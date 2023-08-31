@@ -1,27 +1,33 @@
 h1 {
-	@apply font-extrabold text-2xl mb-2;
+  @apply font-extrabold text-2xl mb-2;
 }
 h2 {
-	@apply font-bold text-xl mb-2;
+  @apply font-bold text-xl mb-2;
 }
 h3 {
-	@apply font-bold text-lg;
+  @apply font-bold text-lg;
+}
+h4 {
+  @apply font-bold;
 }
 .card {
-	@apply border border-black rounded mb-2 p-2;
+  @apply border border-black rounded mb-2 p-2;
 }
 .accordion-content {
-	@apply my-2 hidden;
+  @apply my-2 hidden;
 }
 .accordion-content.open {
-	@apply block;
+  @apply block;
 }
 .row {
-	@apply p-2 border-b border-black border-dashed;
+  @apply p-2 border-b border-black border-dashed;
 }
 .alternate {
-	@apply bg-slate-300;
+  @apply bg-slate-300;
 }
 .table-header {
-	@apply bg-black text-white font-bold p-2 flex flex-wrap;
+  @apply bg-black text-white font-bold p-2 flex flex-wrap;
+}
+#print-resume {
+  @apply m-2 p-4 border border-black;
 }
