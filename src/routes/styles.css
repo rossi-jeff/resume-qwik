@@ -16,3 +16,12 @@ h3 {
 .accordion-content.open {
 	@apply block;
 }
+.row {
+	@apply p-2 border-b border-black border-dashed;
+}
+.alternate {
+	@apply bg-slate-300;
+}
+.table-header {
+	@apply bg-black text-white font-bold p-2 flex flex-wrap;
+}
