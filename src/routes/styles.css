@@ -1,0 +1,12 @@
+h1 {
+  @apply font-extrabold text-2xl mb-2;
+}
+h2 {
+  @apply font-bold text-xl mb-2;
+}
+h3 {
+  @apply font-bold text-lg;
+}
+.card {
+  @apply border border-black rounded mb-2 p-2;
+}
