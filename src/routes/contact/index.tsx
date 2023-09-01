@@ -6,7 +6,11 @@ import {
   useStore,
 } from "@builder.io/qwik";
 import { AddressForm } from "~/components/address-form/address-form";
+import { ContactInfoForm } from "~/components/contact-info-form/contact-info-form";
+import { MessageForm } from "~/components/message-form/message-form";
 import { NameForm } from "~/components/name-form/name-form";
+import { FormatAddress } from "~/lib/format-address";
+import { FormatName } from "~/lib/format-name";
 import { type ContactType, blankContact } from "~/types/contact.type";
 
 export default component$(() => {
@@ -62,20 +66,55 @@ export default component$(() => {
         <AddressForm address={contact.Address} />
       </div>
       <div class="step-content" id={"content-" + steps[2]}>
-        {"content-" + steps[2]}
+        <ContactInfoForm contact={contact} />
       </div>
       <div class="step-content" id={"content-" + steps[3]}>
-        {"content-" + steps[3]}
+        <MessageForm contact={contact} />
       </div>
       <div class="step-content" id={"content-" + steps[4]}>
-        {"content-" + steps[4]}
+        <table>
+          <tbody>
+            <tr>
+              <th class="text-left">Name</th>
+              <td>{FormatName(contact.Name)}</td>
+            </tr>
+            <tr>
+              <th class="text-left">Address</th>
+              <td>{FormatAddress(contact.Address)}</td>
+            </tr>
+            <tr>
+              <th class="text-left">Email</th>
+              <td>
+                {contact.Email} ({contact.EmailType})
+              </td>
+            </tr>
+            <tr>
+              <th class="text-left">Phone</th>
+              <td>
+                {contact.Phone} ({contact.PhoneType})
+              </td>
+            </tr>
+            <tr>
+              <th class="text-left">Preferred</th>
+              <td>{contact.Preferred}</td>
+            </tr>
+            <tr>
+              <th class="text-left">Subject</th>
+              <td>{contact.Subject}</td>
+            </tr>
+            <tr>
+              <th class="text-left">Message</th>
+              <td>{contact.Message}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div class="flex flex-wrap justify-between">
         <button id="previous-button" onClick$={previousStep}>
-          Previous
+          &lt; Previous
         </button>
         <button id="next-button" onClick$={nextStep}>
-          Next
+          Next &gt;
         </button>
       </div>
     </div>

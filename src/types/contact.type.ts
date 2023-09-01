@@ -12,17 +12,17 @@ export type ContactType = {
 	Name: FullName
 	Address: Address
 	Email: string
-	EmailType: EmailType
+	EmailType: EmailType | string
 	Phone: string
-	PhoneType: PhoneType
-	Preferred: PreferedType
+	PhoneType: PhoneType | string
+	Preferred: PreferedType | string
 	Subject: string
 	Message: string
 }
 
 export const blankContact: ContactType = {
 	Name: {
-		Salutation: undefined,
+		Salutation: '',
 		First: '',
 		Middle: '',
 		Last: '',

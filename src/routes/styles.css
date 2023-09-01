@@ -48,7 +48,8 @@ h4 {
 }
 input,
 select,
-textarea {
+textarea,
+button {
   @apply text-sm px-2 py-1 border border-black rounded;
 }
 label {
