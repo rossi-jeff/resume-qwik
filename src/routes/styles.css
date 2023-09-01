@@ -31,3 +31,27 @@ h4 {
 #print-resume {
   @apply m-2 p-4 border border-black;
 }
+.stepper-display {
+  @apply flex flex-wrap justify-between;
+}
+.step {
+  @apply font-bold tracking-wide p-2;
+}
+.step.current {
+  @apply bg-slate-200 rounded;
+}
+.step-content {
+  @apply py-2 hidden;
+}
+.step-content.current {
+  @apply block;
+}
+input,
+select,
+textarea,
+button {
+  @apply text-sm px-2 py-1 border border-black rounded;
+}
+label {
+  @apply font-bold;
+}
