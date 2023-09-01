@@ -9,8 +9,11 @@ import { AddressForm } from "~/components/address-form/address-form";
 import { ContactInfoForm } from "~/components/contact-info-form/contact-info-form";
 import { MessageForm } from "~/components/message-form/message-form";
 import { NameForm } from "~/components/name-form/name-form";
+import { CREATE_CONTACT_MUTATION } from "~/graphql/mutations/create-contact";
 import { FormatAddress } from "~/lib/format-address";
 import { FormatName } from "~/lib/format-name";
+import { GraphQlClient } from "~/lib/graph-ql-client";
+import { RemoveBlanks } from "~/lib/remove-blanks";
 import { type ContactType, blankContact } from "~/types/contact.type";
 
 export default component$(() => {
@@ -24,6 +27,29 @@ export default component$(() => {
   const nextStep = $(() => {
     if (current.value >= steps.length - 1) return;
     current.value++;
+  });
+  const clearState = $(() => {
+    contact.Address = blankContact.Address;
+    contact.Name = blankContact.Name;
+    contact.Email = "";
+    contact.Phone = "";
+    contact.EmailType = "Home";
+    contact.PhoneType = "Home";
+    contact.Preferred = "Email";
+    contact.Subject = "";
+    contact.Message = "";
+    current.value = 0;
+  });
+  const sendContact = $(async () => {
+    const variables = RemoveBlanks(contact);
+    const client = new GraphQlClient();
+    const req = await client.mutate({
+      mutation: CREATE_CONTACT_MUTATION,
+      variables,
+    });
+    const res = await req.json();
+    console.log(res);
+    clearState();
   });
   useVisibleTask$(({ track }) => {
     track(() => current.value);
@@ -108,6 +134,7 @@ export default component$(() => {
             </tr>
           </tbody>
         </table>
+        <button onClick$={sendContact}>Send Form</button>
       </div>
       <div class="flex flex-wrap justify-between">
         <button id="previous-button" onClick$={previousStep}>
