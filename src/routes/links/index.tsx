@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik'
-import { routeLoader$ } from '@builder.io/qwik-city'
+import { type DocumentHead, routeLoader$ } from '@builder.io/qwik-city'
 import { GET_LINKS_QUERY } from '../../graphql/queries/get-links'
 import { GraphQlClient } from '../../lib/graph-ql-client'
 import { type Link } from '../../types/link.type'
@@ -16,3 +16,13 @@ export default component$(() => {
 	const links = useLinks()
 	return <LinkTable links={links.value} />
 })
+
+export const head: DocumentHead = {
+	title: 'Jeff Rossi | Links',
+	meta: [
+		{
+			name: 'description',
+			content: 'Jeff Rossi | Software Developer',
+		},
+	],
+}

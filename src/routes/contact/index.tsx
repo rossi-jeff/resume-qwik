@@ -5,6 +5,7 @@ import {
 	useVisibleTask$,
 	useStore,
 } from '@builder.io/qwik'
+import type { DocumentHead } from '@builder.io/qwik-city'
 import { AddressForm } from '~/components/address-form/address-form'
 import { ContactInfoForm } from '~/components/contact-info-form/contact-info-form'
 import { MessageForm } from '~/components/message-form/message-form'
@@ -152,3 +153,13 @@ export default component$(() => {
 		</div>
 	)
 })
+
+export const head: DocumentHead = {
+	title: 'Jeff Rossi | Contact',
+	meta: [
+		{
+			name: 'description',
+			content: 'Jeff Rossi | Software Developer',
+		},
+	],
+}

@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik'
-import { routeLoader$ } from '@builder.io/qwik-city'
+import { type DocumentHead, routeLoader$ } from '@builder.io/qwik-city'
 import { GraphQlClient } from '~/lib/graph-ql-client'
 import { GET_JOBS_QUERY } from '~/graphql/queries/get-jobs'
 import { type Job } from '../../types/job.type'
@@ -16,3 +16,13 @@ export default component$(() => {
 	const jobs = useJobs()
 	return <JobList jobs={jobs.value} />
 })
+
+export const head: DocumentHead = {
+	title: 'Jeff Rossi | Employment',
+	meta: [
+		{
+			name: 'description',
+			content: 'Jeff Rossi | Software Developer',
+		},
+	],
+}

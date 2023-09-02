@@ -98,8 +98,10 @@ export default component$(() => {
 				</a>
 				. Links to the other applications are available on the Links page. This
 				particular site was contructed using{' '}
-				<a href="https://qwik.builder.io/">QWIK</a>. The source code for any of
-				my applications is available upon request.
+				<a href="https://qwik.builder.io/" target="_blank">
+					QWIK
+				</a>
+				. The source code for any of my applications is available upon request.
 			</div>
 		</div>
 	)

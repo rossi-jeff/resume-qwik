@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik'
-import { routeLoader$ } from '@builder.io/qwik-city'
+import { type DocumentHead, routeLoader$ } from '@builder.io/qwik-city'
 import { GraphQlClient } from '~/lib/graph-ql-client'
 import { GET_REFERENCES_QUERY } from '~/graphql/queries/get-references'
 import { type Reference } from '~/types/reference.type'
@@ -16,3 +16,13 @@ export default component$(() => {
 	const references = useReferences()
 	return <ReferenceList references={references.value} />
 })
+
+export const head: DocumentHead = {
+	title: 'Jeff Rossi | References',
+	meta: [
+		{
+			name: 'description',
+			content: 'Jeff Rossi | Software Developer',
+		},
+	],
+}

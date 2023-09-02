@@ -117,6 +117,6 @@ a:hover {
 	@apply text-alt-light;
 }
 .dark .header-bar h3,
-.dark .foooter-bar h3 {
+.dark .footer-bar h3 {
 	@apply text-alt-dark;
 }
