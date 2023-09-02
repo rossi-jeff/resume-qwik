@@ -1,3 +1,9 @@
+body {
+  @apply bg-light text-dark p-0 m-0;
+}
+body.dark {
+  @apply bg-dark text-light;
+}
 h1 {
   @apply font-extrabold text-2xl mb-2;
 }
@@ -11,7 +17,10 @@ h4 {
   @apply font-bold;
 }
 .card {
-  @apply border border-black rounded mb-2 p-2;
+  @apply border border-dark bg-alt-light rounded mb-2 p-2;
+}
+.dark .card {
+  @apply border-light bg-alt-dark;
 }
 .accordion-content {
   @apply my-2 hidden;
@@ -20,16 +29,25 @@ h4 {
   @apply block;
 }
 .row {
-  @apply p-2 border-b border-black border-dashed;
+  @apply p-2 border-b border-dark border-dashed;
+}
+.dark .row {
+  @apply border-light;
 }
 .alternate {
-  @apply bg-slate-300;
+  @apply bg-alt-light;
+}
+.dark .alternate {
+  @apply bg-alt-dark;
 }
 .table-header {
-  @apply bg-black text-white font-bold p-2 flex flex-wrap;
+  @apply bg-dark text-light font-bold p-2 flex flex-wrap;
+}
+.dark .table-header {
+  @apply bg-light text-dark;
 }
 #print-resume {
-  @apply m-2 p-4 border border-black;
+  @apply m-2 p-4 border border-black bg-white text-black;
 }
 .stepper-display {
   @apply flex flex-wrap justify-between;
@@ -38,7 +56,10 @@ h4 {
   @apply font-bold tracking-wide p-2;
 }
 .step.current {
-  @apply bg-slate-200 rounded;
+  @apply bg-alt-light rounded;
+}
+.dark .step.current {
+  @apply bg-alt-dark;
 }
 .step-content {
   @apply py-2 hidden;
@@ -50,8 +71,14 @@ input,
 select,
 textarea,
 button {
-  @apply text-sm px-2 py-1 border border-black rounded;
+  @apply text-sm px-2 py-1 border border-dark bg-alt-light text-dark rounded;
 }
 label {
   @apply font-bold;
+}
+.dark input,
+.dark select,
+.dark textarea,
+.dark button {
+  @apply border-light text-light bg-alt-dark;
 }
