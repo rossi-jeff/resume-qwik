@@ -1,10 +1,10 @@
-import { component$, Slot, useStyles$ } from '@builder.io/qwik'
+import { component$, Slot, useStore, useStyles$ } from '@builder.io/qwik'
 import { routeLoader$ } from '@builder.io/qwik-city'
 import type { RequestHandler } from '@builder.io/qwik-city'
-
-import { Navigation } from '../components/navigation/navigation'
-
 import styles from './styles.css?inline'
+import { paletteNames } from '~/lib/palettes'
+import { FooterBar } from '~/components/footer-bar/footer-bar'
+import { HeaderBar } from '../components/header-bar/header-bar'
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
 	// Control caching for this request for best performance and to reduce hosting costs:
@@ -24,13 +24,18 @@ export const useServerTimeLoader = routeLoader$(() => {
 })
 
 export default component$(() => {
+	const state = useStore({
+		palette: paletteNames[0],
+		dark: false,
+	})
 	useStyles$(styles)
 	return (
-		<>
-			<Navigation />
-			<main>
+		<div class="flex flex-col h-screen">
+			<HeaderBar />
+			<main class="flex-grow overflow-y-auto h-full">
 				<Slot />
 			</main>
-		</>
+			<FooterBar state={state} />
+		</div>
 	)
 })

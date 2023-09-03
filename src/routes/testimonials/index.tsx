@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik'
-import { routeLoader$ } from '@builder.io/qwik-city'
+import { type DocumentHead, routeLoader$ } from '@builder.io/qwik-city'
 import { GraphQlClient } from '~/lib/graph-ql-client'
 import { GET_COMMENTS_QUERY } from '~/graphql/queries/get-comments'
 import { type Comment } from '~/types/comment.type'
@@ -16,3 +16,13 @@ export default component$(() => {
 	const comments = useComments()
 	return <CommentList comments={comments.value} />
 })
+
+export const head: DocumentHead = {
+	title: 'Jeff Rossi | Testimonials',
+	meta: [
+		{
+			name: 'description',
+			content: 'Jeff Rossi | Software Developer',
+		},
+	],
+}

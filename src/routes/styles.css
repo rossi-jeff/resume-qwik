@@ -1,57 +1,122 @@
+body {
+	@apply bg-light text-dark p-0 m-0;
+}
+body.dark {
+	@apply bg-dark text-light;
+}
 h1 {
-  @apply font-extrabold text-2xl mb-2;
+	@apply font-extrabold text-2xl mb-2;
 }
 h2 {
-  @apply font-bold text-xl mb-2;
+	@apply font-bold text-xl mb-2;
 }
 h3 {
-  @apply font-bold text-lg;
+	@apply font-bold text-lg;
 }
 h4 {
-  @apply font-bold;
+	@apply font-bold;
 }
 .card {
-  @apply border border-black rounded mb-2 p-2;
+	@apply border border-dark bg-alt-light rounded mb-2 p-2;
+}
+.dark .card {
+	@apply border-light bg-alt-dark;
 }
 .accordion-content {
-  @apply my-2 hidden;
+	@apply my-2 hidden;
 }
 .accordion-content.open {
-  @apply block;
+	@apply block;
 }
 .row {
-  @apply p-2 border-b border-black border-dashed;
+	@apply p-2 border-b border-dark border-dashed;
+}
+.dark .row {
+	@apply border-light;
 }
 .alternate {
-  @apply bg-slate-300;
+	@apply bg-alt-light;
+}
+.dark .alternate {
+	@apply bg-alt-dark;
 }
 .table-header {
-  @apply bg-black text-white font-bold p-2 flex flex-wrap;
+	@apply bg-dark text-light font-bold p-2 flex flex-wrap;
+}
+.dark .table-header {
+	@apply bg-light text-dark;
 }
 #print-resume {
-  @apply m-2 p-4 border border-black;
+	@apply m-2 p-4 border border-black bg-white text-black;
 }
 .stepper-display {
-  @apply flex flex-wrap justify-between;
+	@apply flex flex-wrap justify-between bg-dark text-light p-2 rounded;
+}
+.dark .stepper-display {
+	@apply bg-light text-dark;
 }
 .step {
-  @apply font-bold tracking-wide p-2;
+	@apply font-bold tracking-wide p-2;
 }
 .step.current {
-  @apply bg-slate-200 rounded;
+	@apply bg-alt-light text-dark rounded;
+}
+.dark .step.current {
+	@apply bg-alt-dark text-light;
+}
+.dark .step.current {
+	@apply bg-alt-dark;
 }
 .step-content {
-  @apply py-2 hidden;
+	@apply py-2 hidden;
 }
 .step-content.current {
-  @apply block;
+	@apply block;
 }
 input,
 select,
 textarea,
 button {
-  @apply text-sm px-2 py-1 border border-black rounded;
+	@apply text-sm px-2 py-1 border border-dark bg-alt-light text-dark rounded;
 }
 label {
-  @apply font-bold;
+	@apply font-bold;
+}
+.dark input,
+.dark select,
+.dark textarea,
+.dark button {
+	@apply border-light text-light bg-alt-dark;
+}
+.card button {
+	@apply bg-alt-dark text-light mb-2;
+}
+.dark .card button {
+	@apply bg-dark;
+}
+.footer-bar {
+	@apply flex flex-wrap justify-between my-2 mx-2 bg-dark text-light p-2 rounded;
+}
+.dark .footer-bar {
+	@apply bg-light text-dark;
+}
+.header-bar {
+	@apply my-2 mx-2 bg-dark text-light p-2 rounded;
+}
+.dark .header-bar {
+	@apply bg-light text-dark;
+}
+a {
+	@apply font-bold;
+}
+a:hover {
+	@apply underline;
+}
+.footer-bar h3,
+.header-bar h3 {
+	@apply text-alt-light;
+}
+.dark .header-bar h3,
+.dark .footer-bar h3 {
+	@apply text-alt-dark;
 }

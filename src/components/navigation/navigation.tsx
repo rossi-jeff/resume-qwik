@@ -1,4 +1,5 @@
 import { component$ } from '@builder.io/qwik'
+import { Link } from '@builder.io/qwik-city'
 
 type LinkType = {
 	name: string
@@ -17,11 +18,11 @@ export const Navigation = component$(() => {
 		{ name: 'Links', path: '/links' },
 	]
 	return (
-		<div class="flex flex-wrap justify-between mx-2">
+		<div class="flex flex-wrap justify-between">
 			{links.map((link, idx) => (
-				<a href={link.path} key={idx}>
+				<Link key={idx} href={link.path}>
 					{link.name}
-				</a>
+				</Link>
 			))}
 		</div>
 	)
