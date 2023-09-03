@@ -1,10 +1,4 @@
-import {
-	component$,
-	Slot,
-	useStore,
-	useStyles$,
-	useVisibleTask$,
-} from '@builder.io/qwik'
+import { component$, Slot, useStore, useStyles$ } from '@builder.io/qwik'
 import { routeLoader$ } from '@builder.io/qwik-city'
 import type { RequestHandler } from '@builder.io/qwik-city'
 import styles from './styles.css?inline'
@@ -35,9 +29,6 @@ export default component$(() => {
 		dark: false,
 	})
 	useStyles$(styles)
-	useVisibleTask$(async () => {
-		document.body.setAttribute('data-theme', state.palette)
-	})
 	return (
 		<div class="flex flex-col h-screen">
 			<HeaderBar />
